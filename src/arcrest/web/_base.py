@@ -594,7 +594,7 @@ class BaseWebOperations(BaseOperation):
             handlers.append(handler)
         handlers.append(RedirectHandler())
         if self._verify == False and \
-           sys.version_info[0:3] >= (2, 7, 9):
+           sys.version_info[0:3] >= (2, 7, 5):
             ctx = ssl.create_default_context()
             ctx.check_hostname = False
             ctx.verify_mode = ssl.CERT_NONE
@@ -616,7 +616,7 @@ class BaseWebOperations(BaseOperation):
         hasContext = False
         if self._verify == False and \
            'context' in self._has_context(request.urlopen) and \
-            sys.version_info[0:3] >= (2, 7, 9):
+            sys.version_info[0:3] >= (2, 7, 5):
             ctx = ssl.create_default_context()
             ctx.check_hostname = False
             ctx.verify_mode = ssl.CERT_NONE
